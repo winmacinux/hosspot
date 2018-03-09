@@ -35,6 +35,7 @@ class ListCreateHospital(generics.ListCreateAPIView):
     
     for item in serializer.data:
       content_type = ContentType.objects.get(model='hospital')
+      user = json.loads(serializers.serialize("json", User.objects.filter(id=item['user'])))
       services = json.loads(serializers.serialize("json", Service.objects.filter(hospital = item['id'])))
       additionalServices = json.loads(serializers.serialize("json", AdditionalService.objects.filter(hospital = item['id'])))
       rooms = json.loads(serializers.serialize("json", Room.objects.filter(hospital = item['id'])))
@@ -43,6 +44,8 @@ class ListCreateHospital(generics.ListCreateAPIView):
       events = json.loads(serializers.serialize("json", Event.objects.filter(hospital = item['id'])))
       ratings = json.loads(serializers.serialize("json", Rate.objects.filter(content_type=content_type, object_id = item['id'])))
       comments = json.loads(serializers.serialize("json", Comment.objects.filter(content_type=content_type, object_id = item['id'])))
+      
+      item['userInfo'] = dict(item)
       item['services'] = []
       item['additional_services'] = []
       item['rooms'] = []
@@ -52,6 +55,10 @@ class ListCreateHospital(generics.ListCreateAPIView):
       item['ratings'] = []
       item['comments'] = []
       
+      for obj in user:
+        item['user'] = obj['fields']
+      
+
       for room in rooms:
         room['fields']['id'] = room['pk']
         item['rooms'].append(room['fields'])
