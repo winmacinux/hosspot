@@ -130,8 +130,10 @@ USE_TZ = True
 CORS_ORIGIN_WHITELIST = (
     'localhost:8080',
     'localhost:8081',
-    '127.0.0.1:8080'
-    '127.0.0.1:8081'
+    'localhost:8100',
+    '127.0.0.1:8080',
+    '127.0.0.1:8081',
+    '127.0.0.1:8100'
 )
 
 # Static files (CSS, JavaScript, Images)
