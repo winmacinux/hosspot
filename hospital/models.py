@@ -20,6 +20,9 @@ class Hospital(models.Model):
 
   def __str__(self):
     return self.title
+
+  def get_username(self):
+    return self.user.__str__()
   
 class Service(models.Model):
   hospital = models.ForeignKey(Hospital, default=1, on_delete=models.CASCADE)

@@ -27,12 +27,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-EMAIL_HOST = 'localhost' #'smtp.gmail.com'  #    
+EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'winmacinux@gmail.com'
 EMAIL_HOST_PASSWORD = 'rvhacker'
 EMAIL_PORT = 587
-EMAIL_USE_TLS = True  
-
+EMAIL_USE_TLS = True
 
 # Application definition
 
@@ -60,6 +59,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
 
 ROOT_URLCONF = 'hos_spot.urls'
@@ -126,8 +127,21 @@ USE_L10N = True
 
 USE_TZ = True
 
+CORS_ORIGIN_WHITELIST = (
+    'localhost:8080',
+    'localhost:8081',
+    '127.0.0.1:8080'
+    '127.0.0.1:8081'
+)
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
+PROJECT_PATH = os.path.realpath(os.path.dirname(__file__))
+
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 STATIC_URL = '/static/'
+#STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
