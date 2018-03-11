@@ -234,3 +234,76 @@ def login(request):
       "is_active": user.is_active
     })
 
+
+
+class ListCreateService(generics.ListCreateAPIView):
+  queryset = Service.objects.all()
+  serializer_class = ServiceSerializer
+
+class RetrieveUpdateDestroyService(generics.RetrieveUpdateDestroyAPIView):
+  queryset = Service.objects.all()
+  serializer_class = ServiceSerializer
+  
+class ListCreateSubService(generics.ListCreateAPIView):
+  queryset = SubService.objects.all()
+  serializer_class = SubServiceSerializer
+
+class RetrieveUpdateDestroySubService(generics.RetrieveUpdateDestroyAPIView):
+  queryset = SubService.objects.all()
+  serializer_class = SubServiceSerializer
+
+class ListCreateEvent(generics.ListCreateAPIView):
+  queryset = Event.objects.all()
+  serializer_class = EventSerializer
+
+class RetrieveUpdateDestroyEvent(generics.RetrieveUpdateDestroyAPIView):
+  queryset = Event.objects.all()
+  serializer_class = EventSerializer
+
+class ListCreateAdditionalService(generics.ListCreateAPIView):
+  queryset = AdditionalService.objects.all()
+  serializer_class = AdditionalServiceSerializer
+
+class RetrieveUpdateDestroyAdditionalService(generics.RetrieveUpdateDestroyAPIView):
+  queryset = AdditionalService.objects.all()
+  serializer_class = AdditionalServiceSerializer
+
+class ListCreateRoom(generics.ListCreateAPIView):
+  queryset = Room.objects.all()
+  serializer_class = RoomSerializer
+
+class RetrieveUpdateDestroyRoom(generics.RetrieveUpdateDestroyAPIView):
+  queryset = Room.objects.all()
+  serializer_class = RoomSerializer
+
+class ListCreateHR(generics.ListCreateAPIView):
+  queryset = HR.objects.all()
+  serializer_class = HRSerializer
+
+class RetrieveUpdateDestroyHR(generics.RetrieveUpdateDestroyAPIView):
+  queryset = HR.objects.all()
+  serializer_class = HRSerializer
+
+class ListCreateDoctor(generics.ListCreateAPIView):
+  queryset = Doctor.objects.all()
+  serializer_class = DoctorSerializer
+
+class RetrieveUpdateDestroyDoctor(generics.RetrieveUpdateDestroyAPIView):
+  queryset = Doctor.objects.all()
+  serializer_class = DoctorSerializer
+
+class ListCreateReport(generics.ListCreateAPIView):
+  queryset = Report.objects.all()
+  serializer_class = ReportSerializer
+
+class RetrieveUpdateDestroyReport(generics.RetrieveUpdateDestroyAPIView):
+  queryset = Report.objects.all()
+  serializer_class = ReportSerializer
+
+class ListCreateFeedback(generics.ListCreateAPIView):
+  queryset = Feedback.objects.all()
+  serializer_class = FeedbackSerializer
+
+class RetrieveUpdateDestroyFeedback(generics.RetrieveUpdateDestroyAPIView):
+  queryset = Feedback.objects.all()
+  serializer_class = FeedbackSerializer
